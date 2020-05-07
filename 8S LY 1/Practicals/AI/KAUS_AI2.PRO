@@ -1,0 +1,18 @@
+predicates
+can_eat(symbol,symbol)
+eatable(symbol)
+available(symbol)
+likes(symbol,symbol)
+clauses
+can_eat(X,Y):-
+	available(Y),
+	eatable(Y),
+	likes(X,Y).
+available(vadapav).
+available(poha).
+eatable(vadapav).
+eatable(poha).
+eatable(thepla).
+eatable(panipuri).
+likes(kaustubh,poha).
+likes(smit,thepla).
