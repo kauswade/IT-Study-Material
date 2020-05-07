@@ -1,0 +1,117 @@
+[16it50@LINTEL 16it50]$ cal
+    January 2018
+Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6
+ 7  8  9 10 11 12 13
+14 15 16 17 18 19 20
+21 22 23 24 25 26 27
+28 29 30 31
+
+[16it50@LINTEL 16it50]$ who am i
+16it50   pts/1        Jan  6 02:59 (100.100.113.70)
+[16it50@LINTEL 16it50]$ pwd
+/home/16it50
+[16it50@LINTEL 16it50]$ echo $PATH
+/usr/kerberos/bin:/usr/local/bin:/bin:/usr/bin:/usr/X11R6/bin:/home/16it50/bin
+[16it50@LINTEL 16it50]$ bc
+bc 1.06
+Copyright 1991-1994, 1997, 1998, 2000 Free Software Foundation, Inc.
+This is free software with ABSOLUTELY NO WARRANTY.
+For details type `warranty'.
+5+9
+14
+
+[1]+  Stopped                 bc
+
+[2]+  Stopped                 cat >hi
+[16it50@LINTEL 16it50]$ cat >hello
+hi
+my name is kasab
+im not a terrorist
+
+[3]+  Stopped                 cat >hello
+[16it50@LINTEL 16it50]$ cat >> hello
+
+
+[4]+  Stopped                 cat >>hello
+[16it50@LINTEL 16it50]$ cat hi
+[16it50@LINTEL 16it50]$ cat hello
+hi
+my name is kasab
+im not a terrorist
+
+[16it50@LINTEL 16it50]$ cat >> hi
+blah! blah! blah!
+
+[5]+  Stopped                 cat >>hi
+[16it50@LINTEL 16it50]$ cat hi
+blah! blah! blah!
+[16it50@LINTEL 16it50]$ cat hello
+hi
+my name is kasab
+im not a terrorist
+
+[16it50@LINTEL 16it50]$ ls [bt]*
+blah  typescript
+
+[16it50@LINTEL 16it50]$ cal 2018
+                               2018
+
+       January               February                 March
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                1  2  3
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    4  5  6  7  8  9 10
+14 15 16 17 18 19 20   11 12 13 14 15 16 17   11 12 13 14 15 16 17
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   18 19 20 21 22 23 24
+28 29 30 31            25 26 27 28            25 26 27 28 29 30 31
+
+        April                   May                   June
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7          1  2  3  4  5                   1  2
+ 8  9 10 11 12 13 14    6  7  8  9 10 11 12    3  4  5  6  7  8  9
+15 16 17 18 19 20 21   13 14 15 16 17 18 19   10 11 12 13 14 15 16
+22 23 24 25 26 27 28   20 21 22 23 24 25 26   17 18 19 20 21 22 23
+29 30                  27 28 29 30 31         24 25 26 27 28 29 30
+
+        July                  August                September
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+ 1  2  3  4  5  6  7             1  2  3  4                      1
+ 8  9 10 11 12 13 14    5  6  7  8  9 10 11    2  3  4  5  6  7  8
+15 16 17 18 19 20 21   12 13 14 15 16 17 18    9 10 11 12 13 14 15
+22 23 24 25 26 27 28   19 20 21 22 23 24 25   16 17 18 19 20 21 22
+29 30 31               26 27 28 29 30 31      23 24 25 26 27 28 29
+                                              30
+       October               November               December
+Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa   Su Mo Tu We Th Fr Sa
+    1  2  3  4  5  6                1  2  3                      1
+ 7  8  9 10 11 12 13    4  5  6  7  8  9 10    2  3  4  5  6  7  8
+14 15 16 17 18 19 20   11 12 13 14 15 16 17    9 10 11 12 13 14 15
+21 22 23 24 25 26 27   18 19 20 21 22 23 24   16 17 18 19 20 21 22
+28 29 30 31            25 26 27 28 29 30      23 24 25 26 27 28 29
+                                              30 31
+[16it50@LINTEL 16it50]$ rm blah
+[16it50@LINTEL 16it50]$ ls
+hello  hi  typescript
+
+
+[16it50@LINTEL 16it50]$ cat hi
+blah blah blah
+[16it50@LINTEL 16it50]$ cat hello
+hi
+my name is kasab
+im not a terrorist
+
+[16it50@LINTEL 16it50]$ cp hi hello
+[16it50@LINTEL 16it50]$ cat hello
+blah blah blah
+
+[16it50@LINTEL 16it50]$ cat hi
+blah blah blah
+[16it50@LINTEL 16it50]$ cat hello
+hi
+my name is kasab
+im not a terrorist
+
+
+
+

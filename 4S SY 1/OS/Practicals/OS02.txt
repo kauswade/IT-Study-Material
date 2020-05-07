@@ -1,0 +1,144 @@
+stat command
+
+[16it50@LINTEL 16it50]$ stat hello
+  File: `hello'
+  Size: 15              Blocks: 8          IO Block: 4096   regular file
+Device: 802h/2050d      Inode: 1605928     Links: 1
+Access: (0644/-rw-r--r--)  Uid: ( 6363/  16it50)   Gid: (  100/   users)
+Access: 2018-02-17 02:54:43.000000000 +0530
+Modify: 2018-01-06 03:29:13.000000000 +0530
+Change: 2018-01-06 03:29:13.000000000 +0530
+
+
+pr command
+
+[16it50@LINTEL 16it50]$ pr list1
+
+
+2018-02-17 03:21                      list1                       Page 1
+
+
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+3       | Harsh         | 1999
+
+
+headcommand
+
+[16it50@LINTEL 16it50]$ head -n 2 list1
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+
+
+tail command
+
+[16it50@LINTEL 16it50]$ tail -n 2 list1
+2       | Karan         | 1997
+3       | Harsh         | 1999
+
+
+cut command
+
+[16it50@LINTEL 16it50]$ cut -c 1-20,25-40 list1
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+3       | Harsh         | 1999
+
+[16it50@LINTEL 16it50]$ cut -c 1-5,25-40 list1
+1       | K
+2       | K
+3       | H
+
+[16it50@LINTEL 16it50]$ cut -d "|" -f 2 list1
+ Kaustubh
+ Karan
+ Harsh
+
+
+paste command
+
+[16it50@LINTEL 16it50]$ cat list1
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+3       | Harsh         | 1999
+
+[16it50@LINTEL 16it50]$ cat file2
+20      | Vadodara
+20      | Vadodara
+18      | Vadodara
+
+[16it50@LINTEL 16it50]$ paste list1 file2
+1       | Kaustubh      | 1997  20      | Vadodara
+2       | Karan         | 1997  20      | Vadodara
+3       | Harsh         | 1999  18      | Vadodara
+
+
+sort command
+
+[16it50@LINTEL 16it50]$ cat file2
+20      | Vadodara
+20      | Vadodara
+18      | Vadodara
+
+[16it50@LINTEL 16it50]$ sort file2
+18      | Vadodara
+20      | Vadodara
+20      | Vadodara
+
+[16it50@LINTEL 16it50]$ cat list1
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+3       | Harsh         | 1999
+[16it50@LINTEL 16it50]$ sort -t "|" -k 2 list1
+3       | Harsh         | 1999
+2       | Karan         | 1997
+1       | Kaustubh      | 1997
+
+[16it50@LINTEL 16it50]$ cat file3
+63
+50
+96
+11
+40
+79
+[16it50@LINTEL 16it50]$ sort -n file3
+11
+40
+50
+63
+79
+96
+
+
+uniq command
+
+[16it50@LINTEL 16it50]$ cat file2
+20      | Vadodara
+20      | Vadodara
+18      | Vadodara
+[16it50@LINTEL 16it50]$ cut -d "|" -f 1 file2 | sort | uniq -u
+18
+[16it50@LINTEL 16it50]$ cat file2
+20      | Vadodara
+20      | Vadodara
+18      | Vadodara
+[16it50@LINTEL 16it50]$ cut -d "|" -f 1 file2 | sort | uniq -c
+      1 18
+      2 20
+
+[16it50@LINTEL 16it50]$ cat file2
+20      | Vadodara
+20      | Vadodara
+18      | Vadodara
+[16it50@LINTEL 16it50]$ cut -d "|" -f 1 file2 | sort | uniq -d
+20
+
+
+grep command
+
+[16it50@LINTEL 16it50]$ cat list1
+1       | Kaustubh      | 1997
+2       | Karan         | 1997
+3       | Harsh         | 1999
+[16it50@LINTEL 16it50]$ grep "Karan" list1
+2       | Karan         | 1997
