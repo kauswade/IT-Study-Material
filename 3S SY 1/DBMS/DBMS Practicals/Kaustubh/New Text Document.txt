@@ -1,0 +1,572 @@
+
+SQL*Plus: Release 9.2.0.1.0 - Production on Fri Jul 7 10:38:38 2017
+
+Copyright (c) 1982, 2002, Oracle Corporation.  All rights reserved.
+
+
+Connected to:
+Oracle9i Enterprise Edition Release 9.2.0.1.0 - Production
+With the Partitioning, OLAP and Oracle Data Mining options
+JServer Release 9.2.0.1.0 - Production
+
+SQL> CREATE TABLE DEPOSIT (ACTNO VARCHAR2(5) ,CNAME VARCHAR2(18) , BNAME VARCHAR2(18) , AMOUNT NUMBE
+R(8,2) ,ADATE DATE);
+
+Table created.
+
+SQL> CREATE TABLE BRANCH(BNAME VARCHAR2(18),CITY VARCHAR2(18));
+
+Table created.
+
+SQL> CREATE TABLE CUSTOMERS(CNAME VARCHAR2(19) ,CITY VARCHAR2(18));
+
+Table created.
+
+SQL> CREATE TABLE BORROW(LOANNO VARCHAR2(5), CNAME VARCHAR2(18), BNAME VARCHAR2(18), AMOUNT NUMBER (
+8,2));
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT
+  2  VALUES(100,'ANIL','VRCE',1000.00,'01-MAR-1995')
+  3  ;
+
+1 row created.
+
+  1  INSERT INTO DEPOSIT
+  2* VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+SQL> /
+Enter value for actno: 101
+Enter value for cname: SUNIL
+Enter value for bname: AJNI
+Enter value for amount: 5000.00
+Enter value for adate: 04-JAN-1996
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(101,'SUNIL','AJNI',5000.00,'04-JAN-1996')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 102
+Enter value for cname: MEHUL
+Enter value for bname: KAROLBAGH]
+Enter value for amount: 3500.00
+Enter value for adate: 17-NOV-1995
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(102,'MEHUL','KAROLBAGH]',3500.00,'17-NOV-1995')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 104
+Enter value for cname: MADHURI
+Enter value for bname: CHANDI
+Enter value for amount: 1200
+Enter value for adate: 17-DEC-1995
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(104,'MADHURI','CHANDI',1200,'17-DEC-1995')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 105
+Enter value for cname: PRMOD
+Enter value for bname: M.G.ROAD
+Enter value for amount: 3000
+Enter value for adate: 27-MAR-1996
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(105,'PRMOD','M.G.ROAD',3000,'27-MAR-1996')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 106
+Enter value for cname: SANDIP
+Enter value for bname: ANDHERI
+Enter value for amount: 2000
+Enter value for adate: 31-MAR-1996
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(106,'SANDIP','ANDHERI',2000,'31-MAR-1996')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 107
+Enter value for cname: SHIVANI
+Enter value for bname: VIRAR
+Enter value for amount: 1000
+Enter value for adate: 05-SEP-1995
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(107,'SHIVANI','VIRAR',1000,'05-SEP-1995')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 108
+Enter value for cname: KRANTI
+Enter value for bname: NEHRU PLACE
+Enter value for amount: 5000
+Enter value for adate: 02-JUL-1995
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(108,'KRANTI','NEHRU PLACE',5000,'02-JUL-1995')
+
+1 row created.
+
+SQL> /
+Enter value for actno: 109
+Enter value for cname: MINU
+Enter value for bname: POWAI
+Enter value for amount: 7000
+Enter value for adate: 10-AUG-1995
+old   2: VALUES(&ACTNO,'&CNAME','&BNAME',&AMOUNT,'&ADATE')
+new   2: VALUES(109,'MINU','POWAI',7000,'10-AUG-1995')
+
+1 row created.
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME              BNAME                  AMOUNT ADATE
+----- ------------------ ------------------ ---------- ---------
+100   ANIL               VRCE                     1000 01-MAR-95
+101   SUNIL              AJNI                     5000 04-JAN-96
+102   MEHUL              KAROLBAGH]               3500 17-NOV-95
+104   MADHURI            CHANDI                   1200 17-DEC-95
+105   PRMOD              M.G.ROAD                 3000 27-MAR-96
+106   SANDIP             ANDHERI                  2000 31-MAR-96
+107   SHIVANI            VIRAR                    1000 05-SEP-95
+108   KRANTI             NEHRU PLACE              5000 02-JUL-95
+109   MINU               POWAI                    7000 10-AUG-95
+
+9 rows selected.
+
+SQL> ][]POI
+SP2-0042: unknown command "][]POI" - rest of line ignored.
+SQL> LOU9HJ8
+SP2-0042: unknown command "LOU9HJ8" - rest of line ignored.
+SQL> -85852
+SP2-0226: Invalid line number
+SQL> UPDATE DEPOSIT
+  2  SET BNAME='KAROLBAGH'
+  3  WHERE ACTNO=102
+  4  ;
+
+1 row updated.
+
+SQL> SELECT * FROM DEPOSIT
+  2  ;
+
+ACTNO CNAME              BNAME                  AMOUNT ADATE
+----- ------------------ ------------------ ---------- ---------
+100   ANIL               VRCE                     1000 01-MAR-95
+101   SUNIL              AJNI                     5000 04-JAN-96
+102   MEHUL              KAROLBAGH                3500 17-NOV-95
+104   MADHURI            CHANDI                   1200 17-DEC-95
+105   PRMOD              M.G.ROAD                 3000 27-MAR-96
+106   SANDIP             ANDHERI                  2000 31-MAR-96
+107   SHIVANI            VIRAR                    1000 05-SEP-95
+108   KRANTI             NEHRU PLACE              5000 02-JUL-95
+109   MINU               POWAI                    7000 10-AUG-95
+
+9 rows selected.
+
+SQL> INSERT INTO BRANCH
+  2  VALUES('&BNAME','&CITY')
+  3  ;
+Enter value for bname: VRCE
+Enter value for city: NAGPUR
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('VRCE','NAGPUR')
+
+1 row created.
+
+SQL> AJNI
+SP2-0042: unknown command "AJNI" - rest of line ignored.
+SQL> /
+Enter value for bname: AJNI
+Enter value for city: NAGPUR
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('AJNI','NAGPUR')
+
+1 row created.
+
+SQL> /
+Enter value for bname: KAROLBAGH
+Enter value for city: DELHI
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('KAROLBAGH','DELHI')
+
+1 row created.
+
+SQL> /
+Enter value for bname: CHANDI
+Enter value for city: DELHI
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('CHANDI','DELHI')
+
+1 row created.
+
+SQL> /
+Enter value for bname: DHARAMPETH
+Enter value for city: NAGPUR
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('DHARAMPETH','NAGPUR')
+
+1 row created.
+
+SQL> /
+Enter value for bname: M.G.ROAD
+Enter value for city: BANGLORE
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('M.G.ROAD','BANGLORE')
+
+1 row created.
+
+SQL> /
+Enter value for bname: ANDHERI
+Enter value for city: BOMBAY
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('ANDHERI','BOMBAY')
+
+1 row created.
+
+SQL> /
+Enter value for bname: VIRAR
+Enter value for city: BOMBAY
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('VIRAR','BOMBAY')
+
+1 row created.
+
+SQL> /
+Enter value for bname: NEHRU PLACE
+Enter value for city: DELHI
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('NEHRU PLACE','DELHI')
+
+1 row created.
+
+SQL> /
+Enter value for bname: POWAI
+Enter value for city: BOMBAY
+old   2: VALUES('&BNAME','&CITY')
+new   2: VALUES('POWAI','BOMBAY')
+
+1 row created.
+
+SQL> SELECT * FROM BRANCH;
+
+BNAME              CITY
+------------------ ------------------
+VRCE               NAGPUR
+AJNI               NAGPUR
+KAROLBAGH          DELHI
+CHANDI             DELHI
+DHARAMPETH         NAGPUR
+M.G.ROAD           BANGLORE
+ANDHERI            BOMBAY
+VIRAR              BOMBAY
+NEHRU PLACE        DELHI
+POWAI              BOMBAY
+
+10 rows selected.
+
+SQL> INSERT INTO CUSTOMERS
+  2  VALUES('&CNAME','&CITY');
+Enter value for cname: ANIL
+Enter value for city: CALCUTTA
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('ANIL','CALCUTTA')
+
+1 row created.
+
+SQL> /
+Enter value for cname: SUNIL
+Enter value for city: DELHI
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('SUNIL','DELHI')
+
+1 row created.
+
+SQL> /
+Enter value for cname: MEHUL
+Enter value for city: BARODA
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('MEHUL','BARODA')
+
+1 row created.
+
+SQL> /
+Enter value for cname: MANDAR
+Enter value for city: PATNA
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('MANDAR','PATNA')
+
+1 row created.
+
+SQL> /
+Enter value for cname: MADHURI
+Enter value for city: NAGPUR
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('MADHURI','NAGPUR')
+
+1 row created.
+
+SQL> /
+Enter value for cname: PRAMOD
+Enter value for city: NAGPUR
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('PRAMOD','NAGPUR')
+
+1 row created.
+
+SQL> /
+Enter value for cname: SANDIP
+Enter value for city: SURAT
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('SANDIP','SURAT')
+
+1 row created.
+
+SQL> /
+Enter value for cname: SHIVANI
+Enter value for city: BOMBAY
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('SHIVANI','BOMBAY')
+
+1 row created.
+
+SQL> /
+Enter value for cname: KRANTI
+Enter value for city: BOMBAY
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('KRANTI','BOMBAY')
+
+1 row created.
+
+SQL> /
+Enter value for cname: NAREN
+Enter value for city: BOMBAY
+old   2: VALUES('&CNAME','&CITY')
+new   2: VALUES('NAREN','BOMBAY')
+
+1 row created.
+
+SQL> SELECT * FROM CUSTOMERS
+  2  ;
+
+CNAME               CITY
+------------------- ------------------
+ANIL                CALCUTTA
+SUNIL               DELHI
+MEHUL               BARODA
+MANDAR              PATNA
+MADHURI             NAGPUR
+PRAMOD              NAGPUR
+SANDIP              SURAT
+SHIVANI             BOMBAY
+KRANTI              BOMBAY
+NAREN               BOMBAY
+
+10 rows selected.
+
+SQL> INSERT INTO BORROW
+  2  VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+  3  ;
+Enter value for loanno: 201
+Enter value for cname: ANIL
+Enter value for bname: VRCE
+Enter value for amount: 1000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('201','ANIL','VRCE',1000)
+
+1 row created.
+
+SQL> /
+Enter value for loanno: 206
+Enter value for cname: MEHUL
+Enter value for bname: AJNI
+Enter value for amount: 5000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('206','MEHUL','AJNI',5000)
+
+1 row created.
+
+SQL> /
+Enter value for loanno: 311
+Enter value for cname: SUNIL
+Enter value for bname: DHARAMPETH
+Enter value for amount: 3000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('311','SUNIL','DHARAMPETH',3000)
+
+1 row created.
+
+SQL> /
+Enter value for loanno: 321
+Enter value for cname: MADHURI
+Enter value for bname: ANDHERI
+Enter value for amount: 2000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('321','MADHURI','ANDHERI',2000)
+
+1 row created.
+
+SQL> /
+Enter value for loanno: 375
+Enter value for cname: PRMOD
+Enter value for bname: VIRAR
+Enter value for amount: 8000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('375','PRMOD','VIRAR',8000)
+
+1 row created.
+
+SQL> /
+Enter value for loanno: 481
+Enter value for cname: KRANTI
+Enter value for bname: NEHRUPLACE
+Enter value for amount: 3000
+old   2: VALUES('&LOANNO','&CNAME','&BNAME',&AMOUNT)
+new   2: VALUES('481','KRANTI','NEHRUPLACE',3000)
+
+1 row created.
+
+SQL> SELECT * FROM BORROW;
+
+LOANN CNAME              BNAME                  AMOUNT
+----- ------------------ ------------------ ----------
+201   ANIL               VRCE                     1000
+206   MEHUL              AJNI                     5000
+311   SUNIL              DHARAMPETH               3000
+321   MADHURI            ANDHERI                  2000
+375   PRMOD              VIRAR                    8000
+481   KRANTI             NEHRUPLACE               3000
+
+6 rows selected.
+
+SQL> DESC DEPOSIT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------------
+ ACTNO                                              VARCHAR2(5)
+ CNAME                                              VARCHAR2(18)
+ BNAME                                              VARCHAR2(18)
+ AMOUNT                                             NUMBER(8,2)
+ ADATE                                              DATE
+
+SQL> DESC BRANCH;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------------
+ BNAME                                              VARCHAR2(18)
+ CITY                                               VARCHAR2(18)
+
+SQL> DESC BORROW, CUSTOMERS
+SP2-0565: Illegal identifier.
+SQL> DESC BORROW;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------------
+ LOANNO                                             VARCHAR2(5)
+ CNAME                                              VARCHAR2(18)
+ BNAME                                              VARCHAR2(18)
+ AMOUNT                                             NUMBER(8,2)
+
+SQL> DESC CUSTOMERS;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -------------------
+ CNAME                                              VARCHAR2(19)
+ CITY                                               VARCHAR2(18)
+
+SQL> SELECT * FROM DEPOSIT;
+
+ACTNO CNAME              BNAME                  AMOUNT ADATE
+----- ------------------ ------------------ ---------- ---------
+100   ANIL               VRCE                     1000 01-MAR-95
+101   SUNIL              AJNI                     5000 04-JAN-96
+102   MEHUL              KAROLBAGH                3500 17-NOV-95
+104   MADHURI            CHANDI                   1200 17-DEC-95
+105   PRMOD              M.G.ROAD                 3000 27-MAR-96
+106   SANDIP             ANDHERI                  2000 31-MAR-96
+107   SHIVANI            VIRAR                    1000 05-SEP-95
+108   KRANTI             NEHRU PLACE              5000 02-JUL-95
+109   MINU               POWAI                    7000 10-AUG-95
+
+9 rows selected.
+
+SQL> SELECT * FROM BRANCH;
+
+BNAME              CITY
+------------------ ------------------
+VRCE               NAGPUR
+AJNI               NAGPUR
+KAROLBAGH          DELHI
+CHANDI             DELHI
+DHARAMPETH         NAGPUR
+M.G.ROAD           BANGLORE
+ANDHERI            BOMBAY
+VIRAR              BOMBAY
+NEHRU PLACE        DELHI
+POWAI              BOMBAY
+
+10 rows selected.
+
+SQL> SELECT * FROM BORROW;
+
+LOANN CNAME              BNAME                  AMOUNT
+----- ------------------ ------------------ ----------
+201   ANIL               VRCE                     1000
+206   MEHUL              AJNI                     5000
+311   SUNIL              DHARAMPETH               3000
+321   MADHURI            ANDHERI                  2000
+375   PRMOD              VIRAR                    8000
+481   KRANTI             NEHRUPLACE               3000
+
+6 rows selected.
+
+SQL> SELECT * FROM CUSTOMERS;
+
+CNAME               CITY
+------------------- ------------------
+ANIL                CALCUTTA
+SUNIL               DELHI
+MEHUL               BARODA
+MANDAR              PATNA
+MADHURI             NAGPUR
+PRAMOD              NAGPUR
+SANDIP              SURAT
+SHIVANI             BOMBAY
+KRANTI              BOMBAY
+NAREN               BOMBAY
+
+10 rows selected.
+
+SQL> SELECT ACTNO,AMOUNT FROM DEPOSIT;
+
+ACTNO     AMOUNT
+----- ----------
+100         1000
+101         5000
+102         3500
+104         1200
+105         3000
+106         2000
+107         1000
+108         5000
+109         7000
+
+9 rows selected.
+
+SQL> SELECT CNAME
+  2  FROM DEPOSIT
+  3  WHERE AMOUNT>4000
+  4  ;
+
+CNAME
+------------------
+SUNIL
+KRANTI
+MINU
+
+SQL> SELECT CNAME FROM DEPOSIT
+  2  WHERE ADATE>'01-dec-1996'
+  3  ;
+
+no rows selected

@@ -1,0 +1,859 @@
+SQL*Plus: Release 9.2.0.1.0 - Production on Sat Jul 8 12:
+
+Copyright (c) 1982, 2002, Oracle Corporation.  All rights
+
+ERROR:
+ORA-01017: invalid username/password; logon denied
+
+
+
+Connected to:
+Oracle9i Enterprise Edition Release 9.2.0.1.0 - Productio
+With the Partitioning, OLAP and Oracle Data Mining option
+JServer Release 9.2.0.1.0 - Production
+
+SQL> create table job
+  2  (job_id varcher2(15),job_title varchar2(30),min_sal 
+er(7,2))
+  3  ;
+(job_id varcher2(15),job_title varchar2(30),min_sal numbe
+                *
+ERROR at line 2:
+ORA-00907: missing right parenthesis
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table job
+  2* (job_id varchar2(15),job_title varchar2(30),min_sal 
+  3  /
+(job_id varchar2(15),job_title varchar2(30),min_sal numbe
+                                                         
+ERROR at line 2:
+ORA-00902: invalid datatype
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  create table job
+  2* (job_id varchar2(15),job_title varchar2(30),min_sal 
+SQL> /
+
+Table created.
+
+SQL> create table employee
+  2  (emp_no number(3),emp_name varchar2(30),emp_sal numb
+(6,1),dept_no number(3));
+
+Table created.
+
+SQL> insert into employee
+  2  values(&emp_no,'&emp_name','&emp_sal',&emp_comm','de
+Enter value for emp_no: 101
+Enter value for emp_name: smith
+Enter value for emp_sal: 800
+Enter value for emp_comm: 
+old   2: values(&emp_no,'&emp_name','&emp_sal',&emp_comm'
+new   2: values(101,'smith','800',','dept_no')
+ERROR:
+ORA-01756: quoted string not properly terminated
+
+
+SQL> ed
+Wrote file afiedt.buf
+
+  1  insert into employee
+  2* values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&dept_
+SQL> /
+Enter value for emp_no: 
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 
+Enter value for emp_comm: 
+Enter value for dept_no: 
+old   2: values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&d
+new   2: values(,'SMITH',,,)
+values(,'SMITH',,,)
+       *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for emp_no: 101
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 800]
+Enter value for emp_comm: 
+Enter value for dept_no: 20
+old   2: values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&d
+new   2: values(101,'SMITH',800],,20)
+values(101,'SMITH',800],,20)
+                      *
+ERROR at line 2:
+ORA-00917: missing comma
+
+
+SQL> //
+Enter value for emp_no: 
+Enter value for emp_name: 
+Enter value for emp_sal: 
+Enter value for emp_comm: 
+Enter value for dept_no: 
+old   2: values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&d
+new   2: values(,'',,,)
+values(,'',,,)
+       *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for emp_no: 101
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 800
+Enter value for emp_comm: 
+Enter value for dept_no: 20
+old   2: values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&d
+new   2: values(101,'SMITH',800,,20)
+values(101,'SMITH',800,,20)
+                       *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for emp_no: 101
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 800
+Enter value for emp_comm:  
+Enter value for dept_no: 20
+old   2: values(&emp_no,'&emp_name',&emp_sal,&emp_comm,&d
+new   2: values(101,'SMITH',800, ,20)
+values(101,'SMITH',800, ,20)
+                        *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> INSERT INTO EMPLOYEE
+  2  VALUES(101,'SMITH',800, ,20);
+VALUES(101,'SMITH',800, ,20)
+                        *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> INSERT INTO JOB
+  2  VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL);
+Enter value for job_id: IT_PROG
+Enter value for job_name: PROGRAMMER
+Enter value for min_sal: 4000
+Enter value for max_sal: 10000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('IT_PROG','PROGRAMMER',4000,10000)
+
+1 row created.
+
+SQL> /
+Enter value for job_id: MK_MGR
+Enter value for job_name: MARKETING MANAGER
+Enter value for min_sal: 9000
+Enter value for max_sal: 15000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('MK_MGR','MARKETING MANAGER',9000,15000)
+
+1 row created.
+
+SQL> /
+Enter value for job_id: FI_MGR
+Enter value for job_name: FINANCE MANAGER
+Enter value for min_sal: 8200
+Enter value for max_sal: 12000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('FI_MGR','FINANCE MANAGER',8200,12000)
+
+1 row created.
+
+SQL> /
+Enter value for job_id: FI_ACC
+Enter value for job_name: ACCOUNT
+Enter value for min_sal: 4200
+Enter value for max_sal: 9000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('FI_ACC','ACCOUNT',4200,9000)
+
+1 row created.
+
+SQL> /
+Enter value for job_id: LEC
+Enter value for job_name: LECTURER
+Enter value for min_sal: 6000
+Enter value for max_sal: 17000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('LEC','LECTURER',6000,17000)
+
+1 row created.
+
+SQL> /
+Enter value for job_id: COMP_OP
+Enter value for job_name: 
+Enter value for min_sal: 
+Enter value for max_sal: 
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('COMP_OP','',,)
+VALUES('COMP_OP','',,)
+                    *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for job_id: COMP_OP
+Enter value for job_name: COMPUTER OPERATOR
+Enter value for min_sal: 1500
+Enter value for max_sal: 3000
+old   2: VALUES('&JOB_ID','&JOB_NAME',&MIN_SAL,&MAX_SAL)
+new   2: VALUES('COMP_OP','COMPUTER OPERATOR',1500,3000)
+
+1 row created.
+
+SQL> SELECT * FROM JOB;
+
+JOB_ID          JOB_TITLE                         MIN_SAL
+--------------- ------------------------------ ----------
+IT_PROG         PROGRAMMER                           4000
+MK_MGR          MARKETING MANAGER                    9000
+FI_MGR          FINANCE MANAGER                      8200
+FI_ACC          ACCOUNT                              4200
+LEC             LECTURER                             6000
+COMP_OP         COMPUTER OPERATOR                    1500
+
+6 rows selected.
+
+SQL> TRUNCATE TABLE DEPOSIT;
+
+Table truncated.
+
+SQL> SELECT * FROM DEPOSIT
+  2  ;
+
+no rows selected
+
+SQL> DESC DEPOSIT;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- -----
+ ACTNO                                              VARCH
+ CNAME                                              VARCH
+ BNAME                                              VARCH
+ AMOUNT                                             NUMBE
+ ADATE                                              DATE
+
+SQL> DROP TABLE DEPOSIT;
+
+Table dropped.
+
+SQL> CREATE TABLE DEPOSIT;
+CREATE TABLE DEPOSIT
+                   *
+ERROR at line 1:
+ORA-00906: missing left parenthesis
+
+
+SQL> CREATE TABLE DEPOSIT
+  2  (A_NO VARCHAR2(5), C_NAME VARCHAR2(15), B_NAME VARCH
+7,2), A_DATE DATE);
+
+Table created.
+
+SQL> INSERT INTO DEPOSIT
+  2  VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE');
+Enter value for a_no: 101
+Enter value for cname: ANIL
+Enter value for bname: ANDHERI
+Enter value for amount: 7000
+Enter value for date: 01-JAN-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(101,'ANIL','ANDHERI',7000,'01-JAN-2006')
+
+1 row created.
+
+SQL> /
+Enter value for a_no: 102
+Enter value for cname: SUNIL
+Enter value for bname: VIRAR
+Enter value for amount: 5000
+Enter value for date: 15-JUL-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(102,'SUNIL','VIRAR',5000,'15-JUL-2006')
+
+1 row created.
+
+SQL> /
+Enter value for a_no: 103
+Enter value for cname: JAY
+Enter value for bname: VILLEPARLE
+Enter value for amount: 6500
+Enter value for date: 12-MAR-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(103,'JAY','VILLEPARLE',6500,'12-MAR-2006'
+
+1 row created.
+
+SQL> /
+Enter value for a_no: 104
+Enter value for cname: VIJAY
+Enter value for bname: ANDHERI
+Enter value for amount: 8000
+Enter value for date: 17-SEP-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(104,'VIJAY','ANDHERI',8000,'17-SEP-2006')
+
+1 row created.
+
+SQL> /
+Enter value for a_no: 105
+Enter value for cname: KEYUR
+Enter value for bname: DADAR
+Enter value for amount: 7500
+Enter value for date: 19-NOV-12006]
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(105,'KEYUR','DADAR',7500,'19-NOV-12006]')
+VALUES(105,'KEYUR','DADAR',7500,'19-NOV-12006]')
+                                *
+ERROR at line 2:
+ORA-01830: date format picture ends before converting ent
+
+
+SQL> /
+Enter value for a_no: 105
+Enter value for cname: KEYUR
+Enter value for bname: DADAR
+Enter value for amount: 7500
+Enter value for date: 19-NOV-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(105,'KEYUR','DADAR',7500,'19-NOV-2006')
+
+1 row created.
+
+SQL> /
+Enter value for a_no: 106
+Enter value for cname: MAYUR
+Enter value for bname: BORIVALI
+Enter value for amount: 5500
+Enter value for date: 21-DEC-2006
+old   2: VALUES(&A_NO,'&CNAME','&BNAME',&AMOUNT,'&DATE')
+new   2: VALUES(106,'MAYUR','BORIVALI',5500,'21-DEC-2006'
+
+1 row created.
+
+SQL> SELECT FR
+  2  
+SQL> SELECT * FROM DEPOSIT
+  2  ;
+
+A_NO  C_NAME          B_NAME         AMOUNT A_DATE
+----- --------------- ---------- ---------- ---------
+101   ANIL            ANDHERI          7000 01-JAN-06
+102   SUNIL           VIRAR            5000 15-JUL-06
+103   JAY             VILLEPARLE       6500 12-MAR-06
+104   VIJAY           ANDHERI          8000 17-SEP-06
+105   KEYUR           DADAR            7500 19-NOV-06
+106   MAYUR           BORIVALI         5500 21-DEC-06
+
+6 rows selected.
+
+SQL> INSERT INTO EMPLOYEE
+  2  VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&DEPT_
+Enter value for emp_no: 101
+Enter value for emp_name: SMITH
+Enter value for emp_sal: 8000
+Enter value for emp_comm: NULL
+Enter value for dept_no: 20
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(101,'SMITH',8000,NULL,20)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 102
+Enter value for emp_name: SNEHAL
+Enter value for emp_sal: 1600
+Enter value for emp_comm: 300
+Enter value for dept_no: 25
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(102,'SNEHAL',1600,300,25)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 103
+Enter value for emp_name: ADAMA
+Enter value for emp_sal: 1100
+Enter value for emp_comm: 0
+Enter value for dept_no: 20
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(103,'ADAMA',1100,0,20)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 104
+Enter value for emp_name: AMAN
+Enter value for emp_sal: 3000
+Enter value for emp_comm: NUL
+Enter value for dept_no: 
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(104,'AMAN',3000,NUL,)
+VALUES(104,'AMAN',3000,NUL,)
+                           *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for emp_no: 104
+Enter value for emp_name: AMAN
+Enter value for emp_sal: 3000
+Enter value for emp_comm: NULL
+Enter value for dept_no: 15
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(104,'AMAN',3000,NULL,15)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 105
+Enter value for emp_name: ANITA
+Enter value for emp_sal: 5000
+Enter value for emp_comm: 50000
+Enter value for dept_no: 10
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(105,'ANITA',5000,50000,10)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 106
+Enter value for emp_name: ANEHA
+Enter value for emp_sal: 
+Enter value for emp_comm: 
+Enter value for dept_no: 
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(106,'ANEHA',,,)
+VALUES(106,'ANEHA',,,)
+                   *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> /
+Enter value for emp_no: 106
+Enter value for emp_name: SNEHA
+Enter value for emp_sal: 2450
+Enter value for emp_comm: 24500
+Enter value for dept_no: 10
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(106,'SNEHA',2450,24500,10)
+
+1 row created.
+
+SQL> /
+Enter value for emp_no: 107
+Enter value for emp_name: ANAMIKA
+Enter value for emp_sal: 2975
+Enter value for emp_comm: NULL
+Enter value for dept_no: 30
+old   2: VALUES(&EMP_NO,'&EMP_NAME',&EMP_SAL,&EMP_COMM,&D
+new   2: VALUES(107,'ANAMIKA',2975,NULL,30)
+
+1 row created.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                          EMP_SAL   EM
+---------- ------------------------------ ---------- ----
+       101 SMITH                                8000            
+       102 SNEHAL                               1600     
+       103 ADAMA                                1100     
+       104 AMAN                                 3000            
+       105 ANITA                                5000     
+       106 SNEHA                                2450     
+       107 ANAMIKA                              2975            
+
+7 rows selected.
+
+SQL> SELECT * FROM TAB;
+
+TNAME                          TABTYPE  CLUSTERID
+------------------------------ ------- ----------
+BORROW                         TABLE
+BRANCH                         TABLE
+CUSTOMERS                      TABLE
+DEPOSIT                        TABLE
+EMPLOYEE                       TABLE
+JOB                            TABLE
+
+6 rows selected.
+
+SQL> SELECT * FROM EMPLOYEE;
+
+    EMP_NO EMP_NAME                          EMP_SAL   EM
+---------- ------------------------------ ---------- ----
+       101 SMITH                                8000            
+       102 SNEHAL                               1600     
+       103 ADAMA                                1100     
+       104 AMAN                                 3000            
+       105 ANITA                                5000     
+       106 SNEHA                                2450     
+       107 ANAMIKA                              2975            
+
+7 rows selected.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT * FROM JOB;
+
+JOB_ID          JOB_TITLE                         MIN_SAL
+--------------- ------------------------------ ----------
+IT_PROG         PROGRAMMER                           4000
+MK_MGR          MARKETING MANAGER                    9000
+FI_MGR          FINANCE MANAGER                      8200
+FI_ACC          ACCOUNT                              4200
+LEC             LECTURER                             6000
+COMP_OP         COMPUTER OPERATOR                    1500
+
+6 rows selected.
+
+SQL> SELECT * FROM DEPOSIT
+  2  ;
+
+A_NO  C_NAME          B_NAME         AMOUNT A_DATE
+----- --------------- ---------- ---------- ---------
+101   ANIL            ANDHERI          7000 01-JAN-06
+102   SUNIL           VIRAR            5000 15-JUL-06
+103   JAY             VILLEPARLE       6500 12-MAR-06
+104   VIJAY           ANDHERI          8000 17-SEP-06
+105   KEYUR           DADAR            7500 19-NOV-06
+106   MAYUR           BORIVALI         5500 21-DEC-06
+
+6 rows selected.
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> SELECT A_NO FROM DEPOSIT
+  2  
+SQL> SELECT A_NO, AMOUNT FROM DEPOSIT
+  2  WHERE (DATE>'01-JAN-2006' AND DATE<'25-JUL-2006');
+WHERE (DATE>'01-JAN-2006' AND DATE<'25-JUL-2006')
+       *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT A_NO, AMOUNT FROM DEPOSIT
+  2* WHERE DATE>'01-JAN-2006' AND DATE<'25-JUL-2006'
+SQL> /
+WHERE DATE>'01-JAN-2006' AND DATE<'25-JUL-2006'
+      *
+ERROR at line 2:
+ORA-00936: missing expression
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT A_NO, AMOUNT FROM DEPOSIT
+  2* WHERE A_DATE>'01-JAN-2006' AND A_DATE<'25-JUL-2006'
+SQL> /
+
+A_NO      AMOUNT
+----- ----------
+102         5000
+103         6500
+
+SQL> SELECT JOB_NAME FROM JOB
+  2  WHERE MIN_SAL>4000;
+SELECT JOB_NAME FROM JOB
+       *
+ERROR at line 1:
+ORA-00904: "JOB_NAME": invalid identifier
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT JOB_TITLE FROM JOB
+  2* WHERE MIN_SAL>4000
+SQL> /
+
+JOB_TITLE
+------------------------------
+MARKETING MANAGER
+FINANCE MANAGER
+ACCOUNT
+LECTURER
+
+SQL> ALTER 
+  2  
+SQL> SELECT EMP_NAME AS "EMPLOYEE NAME", EMP_SAL 
+  2  FROM EMPLOYEE
+  3  WHERE DEPT_NO=20;
+
+EMPLOYEE NAME                     EMP_SAL
+------------------------------ ----------
+SMITH                                8000
+ADAMA                                1100
+
+SQL> SELECT EMP_NO, EMPLOYEE NAME, DEPT_NO FROM EMPLOYEE
+  2  WHERE 10<DEPT_NO<20;
+WHERE 10<DEPT_NO<20
+                *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT EMP_NO, EMPLOYEE NAME, DEPT_NO FROM EMPLOYEE
+  2* WHERE 10<DEPT_NO AND DEPT_NO<20
+SQL> /
+SELECT EMP_NO, EMPLOYEE NAME, DEPT_NO FROM EMPLOYEE
+               *
+ERROR at line 1:
+ORA-00904: "EMPLOYEE": invalid identifier
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT EMP_NO, EMP_NAME, DEPT_NO FROM EMPLOYEE
+  2* WHERE 10<DEPT_NO AND DEPT_NO<20
+SQL> ;/
+SP2-0042: unknown command ";/" - rest of line ignored.
+SQL> /
+
+    EMP_NO EMP_NAME                          DEPT_NO
+---------- ------------------------------ ----------
+       104 AMAN                                   15
+
+
+
+
+
+
+
+
+
+
+  3  
+SQL> 
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE EMP_NAME LIKE 'A_A%'
+  3  ;
+
+    EMP_NO EMP_NAME                          EMP_SAL   EMP_COMM 
+---------- ------------------------------ ---------- ---------- 
+       103 ADAMA                                1100          0 
+       104 AMAN                                 3000            
+       107 ANAMIKA                              2975            
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT EMP_NO,EMP_NAME, EMP_SAL FROM EMPLOYEE
+  2* WHERE EMP_NAME LIKE 'ANI__'
+  3  /
+
+    EMP_NO EMP_NAME                          EMP_SAL
+---------- ------------------------------ ----------
+       105 ANITA                                5000
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE EMP_COMM!='NULL'
+  3  AND LIKE '_N___';
+AND LIKE '_N___'
+    *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMPLOYEE
+  3* WHERE EMP_COMM != NULL AND LIKE '_N___'
+SQL> /
+WHERE EMP_COMM != NULL AND LIKE '_N___'
+                           *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMPLOYEE
+  3* WHERE EMP_COMM != NULL AND LIKE '_N___'
+SQL> /
+WHERE EMP_COMM != NULL AND LIKE '_N___'
+                           *
+ERROR at line 3:
+ORA-00936: missing expression
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMPLOYEE
+  3* WHERE EMP_COMM != NULL AND LIKE '_N___'
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT *
+  2  FROM EMPLOYEE
+  3* WHERE EMP_COMM != NULL AND EMP_NAME LIKE '_N___'
+SQL>  COMMIT
+  2  ;
+
+Commit complete.
+
+SQL> /
+
+Commit complete.
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE EMP_COMM!=NULL AND EMP_NAME LIKE '_N___'
+  3  ;
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM EMPLOYEE
+  2* WHERE EMP_COMMN != NULL AND EMP_NAME LIKE '_N___'
+  3  /
+WHERE EMP_COMMN != NULL AND EMP_NAME LIKE '_N___'
+      *
+ERROR at line 2:
+ORA-00904: "EMP_COMMN": invalid identifier
+
+
+SQL> /
+WHERE EMP_COMMN != NULL AND EMP_NAME LIKE '_N___'
+      *
+ERROR at line 2:
+ORA-00904: "EMP_COMMN": invalid identifier
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM EMPLOYEE
+  2* WHERE EMP_COMMN != NULL AND EMP_NAME LIKE '_N___'
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM EMPLOYEE
+  2* WHERE EMP_COMM!=NULL AND EMP_NAME LIKE '_N___'
+SQL> /
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM EMPLOYEE
+  2* WHERE EMP_NAME LIKE '_N___'
+SQL> /
+
+    EMP_NO EMP_NAME                          EMP_SAL   EMP_COMM 
+---------- ------------------------------ ---------- ---------- 
+       105 ANITA                                5000      50000 
+       106 SNEHA                                2450      24500 
+
+SQL> COMMIT;
+
+Commit complete.
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1* COMMIT
+SQL> SELECT EMP_NAME FROM EMPLOYEE
+  2  WHERE EMP_NAME LIKE '__A%' AND EMP_COMM=NULL
+  3  ;
+
+no rows selected
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT EMP_NAME FROM EMPLOYEE
+  2* WHERE EMP_NAME LIKE '__A%' AND EMP_COMM IS NULL
+  3  /
+
+EMP_NAME
+------------------------------
+AMAN
+ANAMIKA
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM JOB
+  2* WHER JOB_ID LIKE '%\_%' ESCAPE'\'
+  3  /
+WHER JOB_ID LIKE '%\_%' ESCAPE'\'
+     *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> /
+WHER JOB_ID LIKE '%\_%' ESCAPE'\'
+     *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM JOB
+  2* WHER JOB_ID LIKE '%\_%' ESCAPE'\';
+SQL> /
+WHER JOB_ID LIKE '%\_%' ESCAPE'\';
+     *
+ERROR at line 2:
+ORA-00933: SQL command not properly ended
+
+
+SQL> ED
+Wrote file afiedt.buf
+
+  1  SELECT * FROM JOB
+  2* WHERE JOB_ID LIKE '%\_%' ESCAPE'\';
+SQL> /
+WHERE JOB_ID LIKE '%\_%' ESCAPE'\';
+                                  *
+ERROR at line 2:
+ORA-00911: invalid character
+
+
+SQL> SELECT * FROM EMPLOYEE
+  2  WHERE EMP_NAME LIKE '%\_%' ESCAPE'\'
+  3  ;
+
