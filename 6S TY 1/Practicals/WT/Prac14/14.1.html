@@ -1,0 +1,58 @@
+<html>
+<head>	<title>14.1</title>
+	<script type="text/javascript">
+		function func()
+		{
+			//document.write("Submited Successfully");
+			fl=0;
+			if(document.Form1.Name.value=="")
+				{alert("Error: please Enter Name");}
+			var gen=document.Form1.Gender;
+			flag=0;
+			for(i=0;i<gen.length;i++)
+			{
+				if(gen[i].checked)
+					flag=1;
+			}
+			if(fl==0)
+				{alert ("Error: please Select Gender");}
+			flag=0;
+			var Occu= document.Form1.Occupation;
+			for(i=0;i<Occu.length;i++)
+			{
+				if(Occu[i].checked)
+					flag=1;
+			}
+			if(flag==0)
+			{alert("Error: please Select Occupation");}			
+		}
+	</script>
+</head>
+<body>
+<form name="Form1" onSubmit="func()">
+	<fieldset>
+	<legend>Enter Name</legend>
+		<input type="text" name="Name" size="30"/>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend>Enter Address</legend>
+		<input type="textarea" name="Address" size="100"/>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend>Enter Gender</legend>
+		<input type="radio" name="Gender">Male</input>
+		<input type="radio" name="Gender">Female</input>
+	</fieldset>
+	<br>
+	<fieldset>
+	<legend>Select Occupation</legend>
+		<input type="checkbox" name="Occupation">Student</input>			
+		<input type="checkbox" name="Occupation">Service</input>
+	</fieldset>
+	<br>
+		<input type="submit"/>
+</form>
+</body>
+<html>

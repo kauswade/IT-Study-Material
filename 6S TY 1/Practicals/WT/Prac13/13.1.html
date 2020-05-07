@@ -1,0 +1,29 @@
+<html>
+<head>	<title>Example of Mouse Move</title>
+	<script type="text/javascript">
+	function move()
+	{
+		tempx = 0;
+		tempy = 0;
+		var element = document.getElementById("Element");
+		document.onmousemove = function getmousexy()
+		{
+			if(true)
+			{
+				tempx = event.clientX;
+				tempy = event.clientY;
+			}
+			element.style.marginLeft = tempx;
+			element.style.marginTop = tempy;
+		}
+	}
+	</script>
+</head>
+<body onload="move()">
+	<h3>Kaustubh Wade(160410116050)</h3>
+	<div id="Element">
+		<h1>Breaking News</h1>
+		Your Exam is Postponed
+	</div>
+</body>
+</html>

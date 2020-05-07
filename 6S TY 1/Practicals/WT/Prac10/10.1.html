@@ -1,0 +1,56 @@
+<html>
+<head>
+	<title>Practical 10</title>
+	<script type="text/javascript">
+		function addfun()
+		{
+			var a = Number(document.Form1.Number1.value);
+			var b = Number(document.Form1.Number2.value);
+			var c = a + b;
+			document.Form1.Result.value=c;
+		}
+		function subfun()
+		{
+			var a = Number(document.Form1.Number1.value);
+			var b = Number(document.Form1.Number2.value);
+			var c = a - b;
+			document.Form1.Result.value=c;
+		}
+		function mulfun()
+		{
+			var a = Number(document.Form1.Number1.value);
+			var b = Number(document.Form1.Number2.value);
+			var c = a * b;
+			document.Form1.Result.value=c;
+		}
+		function divfun()
+		{
+			var a = Number(document.Form1.Number1.value);
+			var b = Number(document.Form1.Number2.value);
+			var c = a / b;
+			document.Form1.Result.value=c;
+		}
+	</script>
+</head>
+<body align="center">
+	<h3>Kaustubh Wade(160410116050)</h3>
+	<h1>Simple Calculator</h1>
+	<form name="Form1">
+	<input type="number" placeholder="Enter Number 1" name="Number1"/>
+	<input type="number" placeholder="Enter Number 2" name="Number2"/>
+	<br>	<br>
+	Select Operation
+	<br>
+	<input type="button" value="+" onclick="addfun()"/>
+	<input type="button" value="-" onclick="subfun()"/>
+	<input type="button" value="*" onclick="mulfun()"/>
+	<input type="button" value="/" onclick="divfun()"/>
+	<br>	<br>
+	Result
+	<br>
+	<input type="textbox" name="Result" value="0"/>
+	<br>	<br>
+	<input type="reset"/>
+	</form>
+</body>
+</html>

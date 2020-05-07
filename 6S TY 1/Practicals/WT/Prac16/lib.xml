@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="abc.xsl"?>
+<lib>
+	<book>
+		<title>ABC</title>
+		<author>XYZ</author>
+	</book>	
+	<book>
+		<title>DEF</title>
+		<author>UVW</author>
+	</book>	
+</lib>
+	

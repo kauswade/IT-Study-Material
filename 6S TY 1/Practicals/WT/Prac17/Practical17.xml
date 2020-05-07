@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="pract17.xsl"?>
+<library>
+	<book>
+		<title>A</title>
+		<author>abc</author>
+		<price>1000</price>
+	</book>
+	<book>
+		<title>B</title>
+		<author>sghd</author>
+		<price>2000</price>
+	</book>
+	<book>
+		<title>C</title>
+		<author>lkm</author>
+		<price>3000</price>
+	</book>
+	<book>
+		<title>D</title>
+		<author>sdsc</author>
+		<price>4000</price>
+	</book>
+	<book>
+		<title>E</title>
+		<author>xyz</author>
+		<price>5000</price>
+	</book>
+</library>

@@ -1,0 +1,32 @@
+﻿@model MovieR.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Random";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    var popular = Model.Customers.Count > 0 ? "popular" : null;
+}
+
+<h2 class=@popular>@Model.movie.Name</h2>
+
+
+@if (Model.Customers.Count == 0)
+{
+    <p>this movie is not rented by anyone</p>
+}
+else
+{
+    <ul>
+
+        @foreach (var item in Model.Customers)
+        {
+
+            <li>@item.Name</li>
+
+        }
+
+    </ul>
+}
+
+

@@ -1,0 +1,37 @@
+﻿@model MovieR.ViewModels.MovieViewModel
+@{
+    ViewBag.Title = "New";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="jumbotron">Add new Movie</h2>
+@using (Html.BeginForm("Create", "Movies"))
+{
+    <div class="form-group">
+        @Html.LabelFor(c=>c.movie.Name)
+        @Html.TextBoxFor(c => c.movie.Name, new { @class="form-control"})
+        @Html.ValidationMessageFor(c=>c.movie.Name)
+    </div>
+
+<div class="form-group">
+        @Html.LabelFor(c=>c.movie.genre)
+        @Html.TextBoxFor(c => c.movie.genre, new { @class="form-control"})
+        @Html.ValidationMessageFor(c=>c.movie.genre)
+    </div>
+
+<div class="form-group">
+    @Html.LabelFor(c => c.movie.releasedate)
+    @Html.TextBoxFor(c => c.movie.releasedate, new { @class = "form-control" })
+    @Html.ValidationMessageFor(c => c.movie.releasedate)
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(c => c.movie.noOfStock)
+    @Html.TextBoxFor(c => c.movie.noOfStock, new { @class = "form-control" })
+    @Html.ValidationMessageFor(c => c.movie.noOfStock)
+</div>
+    @Html.HiddenFor(c=>c.movie.Id)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-success">Save</button>
+}
+

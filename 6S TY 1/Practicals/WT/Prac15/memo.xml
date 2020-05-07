@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE memo [
+	<!ELEMENT memo (to,from,title,msg)>
+	<!ELEMENT to (#PCDATA)>
+	<!ELEMENT from (#PCDATA)>
+	<!ELEMENT title (#PCDATA)>
+	<!ELEMENT msg (#PCDATA)>
+]>
+<memo>
+	<to>Kaustubh</to>
+	<from>Wade</from>
+	<title>Regarding income</title>
+	<msg>Refund provided</msg>
+</memo>

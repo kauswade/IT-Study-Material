@@ -1,0 +1,13 @@
+﻿@model MovieR.Models.Customer
+@using System.Linq;
+@{
+    ViewBag.Title = "details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>@ViewBag.names</h2>
+@foreach (var ittem in ViewBag.custm)
+{
+    <h4>Membership type: @ittem</h4>
+}
+

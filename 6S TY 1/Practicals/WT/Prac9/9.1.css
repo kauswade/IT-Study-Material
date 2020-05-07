@@ -1,0 +1,18 @@
+p{
+	position:Absolute;
+	top:50px;
+	left:45px;
+	z-index:0;
+ }
+img{
+	position:Absolute;
+	top:7em;
+	left:7em;
+	z-index:1;
+ }
+ h1{	position:Absolute;
+	top:5px;
+	left:5px;
+	z-index:2;
+ }
+

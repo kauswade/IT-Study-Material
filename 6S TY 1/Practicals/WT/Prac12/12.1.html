@@ -1,0 +1,35 @@
+<html>
+<head>
+	<title>Practical 12</title>
+	<script type="text/javascript">
+		function Func()
+		{
+			var a =	document.Form1.Number1.value;
+			var b = document.Form1.Number2.value;
+			var Even = "";
+			var Odd = "";
+			for(i=a;i<=b;i++)
+			{
+				if(i%2==0)
+					Even = Even + " " + i;
+				else
+					Odd = Odd + " " + i;
+			}
+			document.Form1.Box1.value = Even;
+			document.Form1.Box2.value = Odd;
+		}
+	</script>
+</head>
+<body align="center">
+	<h3>Kaustubh Wade(160410116050)</h3>
+	<form name="Form1">
+		<input type="text" name="Number1"/>
+		<input type="text" name="Number2"/>
+		<br>	<br>
+		<input type="text" name="Box1" placeholder="Even"/>
+		<input type="text" name="Box2" placeholder="Odd"/>
+		<br>	<br>
+		<input type="button" value="Submit" onclick="Func()"/>
+	</form>
+</body>
+</html>

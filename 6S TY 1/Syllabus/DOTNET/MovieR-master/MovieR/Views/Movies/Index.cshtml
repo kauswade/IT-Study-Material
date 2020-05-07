@@ -1,0 +1,65 @@
+﻿@model MovieR.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="jumbotron">Movies</h2>
+@Html.ActionLink("new Movie", "New", "Movies", new { @class = "btn btn-primary" })
+<br />
+<br />
+<table id="movie" class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th>Movies</th>
+            <th>Genre</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Movie)
+        {
+
+            <tr>
+                <td>@Html.ActionLink(item.Name, "Edit", "Movies", new { Id = item.Id }, null)</td>
+                <td>@item.genre</td>
+                <td><button data-item-id="@item.Id" class="btn btn-link js-delete">Delete</button></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts
+    {
+    <script>
+        $(document).ready(function () {
+
+            var table = $("#movie").DataTable();
+
+            $("#movie .js-delete").on("click", function () {
+
+
+                var button = $(this);
+
+                bootbox.confirm("are you sure you want to delete this customer?", function (result) {
+                    if (result) {
+                        var but = button;
+                        $.ajax({
+                            url: "/api/movie/" + button.attr("data-item-id"),
+                            method: "DELETE",
+                            success: function () {
+                                table.row(button.parents("tr")).remove().draw();
+                                //but.parents("tr").remove();
+                            }
+                        })
+                    }
+
+                })
+
+
+            });
+        });
+    </script>
+
+
+}
