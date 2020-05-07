@@ -1,0 +1,7 @@
+NOTE: Don't put screenshot of output. 
+Run the code in turbo C. 
+Goto Windows ---> Output.
+Copy Output.
+Paste it in coding window and comment it.
+Copy this full file in word. 
+Follow the formatting of word file from attachment.
